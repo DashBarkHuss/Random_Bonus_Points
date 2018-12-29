@@ -7,8 +7,14 @@ Let's start with a simplified version. Every two seconds the
  possiblility of getting a point with change.
 
 */
+var scoreBoard;
 
-var scoreBoard = document.getElementById("one");
+window.onload=myFunction();
+function myFunction(){
+    console.log('hi');
+    scoreBoard = document.getElementById("one");
+    console.log(scoreBoard.innerHTML);
+    }
 var bonusInterval = false;
 var points = 0;
 
@@ -30,8 +36,9 @@ var points = 0;
 function point(){
     // bonusInterval ? points +=5 : points +=1;
     console.log("clicked");
+    var scoreBoard = document.getElementById("one");
     
-    scoreBoard.innerHTML = points;
+    scoreBoard.innerHTML = "hi";
 }
 
 /*why is the scoreboard variable that stores the dom element with id "one" null
