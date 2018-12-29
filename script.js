@@ -1,46 +1,34 @@
 /*For this program, we want this function to result in a point 
-only when it is triggered at a certain randomized time.
+ when it is triggered and extrapoints only at a certain randomized time.
 */
 
-/*
-Let's start with a simplified version. Every two seconds the
- possiblility of getting a point with change.
-
-*/
 var scoreBoard;
+var points = 0;
 
-window.onload=myFunction();
-function myFunction(){
-    console.log('hi');
+window.onload = function(){
     scoreBoard = document.getElementById("one");
-    console.log(scoreBoard.innerHTML);
     }
+    
 var bonusInterval = false;
 var points = 0;
 
-// function toggleBonusInterval(){
-//     bonusInterval = !bonusInterval;
-// }
-
-// (function loop() { //outer parenthesis mean this is a self executing function
-//     var rand = (Math.round(Math.random() * 20)) * 1000;
-//     console.log(rand);
-//     setTimeout(function() {
-//             console.log("hey");
-//             toggleBonusInterval();
-//             loop();  
-//     }, rand);
-// }());/*the outer parenthesis means it is a self executing 
-// function and the inner parenthesis exetutes this function*/
-
-function point(){
-    // bonusInterval ? points +=5 : points +=1;
-    console.log("clicked");
-    var scoreBoard = document.getElementById("one");
-    
-    scoreBoard.innerHTML = "hi";
+function toggleBonusInterval(){
+    bonusInterval = !bonusInterval;
 }
 
-/*why is the scoreboard variable that stores the dom element with id "one" null
-when I reference it inside the point function? if I initialize it in the opoint function
-it works but isn't it in scope? */
+(function loop() { //outer parenthesis mean this is a self executing function
+    var wait;
+    bonusInterval ? wait = 2000 : wait = ((Math.round(Math.random() * 20)) * 1000);
+    setTimeout(function() { 
+            toggleBonusInterval();
+            loop();  
+    }, wait);
+}());/*the outer parenthesis means it is a self executing 
+function and the inner parenthesis exetutes this function*/
+
+function point(){
+    bonusInterval ? points +=5 : points +=1;    
+    scoreBoard.innerHTML = points;
+}
+
+
