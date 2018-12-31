@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    background: linear-gradient(to right, aqua, hotpink);
+    
+}
+#wrapper{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
+button{
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    outline: 0;
+    box-shadow: 1px 1px 4px #bbf;
+    background: linear-gradient(to right, #bbf, blue);
+    border: none;
+}
+#points{
+    position: relative;
+    height: 80px;
+    font-size: 3em;
+    color: aliceblue;
+}
+
